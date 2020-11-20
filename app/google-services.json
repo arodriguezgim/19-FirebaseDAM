@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "899929064776",
+    "firebase_url": "https://fir-dam-8726e.firebaseio.com",
+    "project_id": "fir-dam-8726e",
+    "storage_bucket": "fir-dam-8726e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899929064776:android:c9885732c0c5768f6b1f7d",
+        "android_client_info": {
+          "package_name": "org.iesch.alberto.firebasedam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899929064776-gsleg0d7lq790d6pdf8h3145t6e9arb9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.iesch.alberto.firebasedam",
+            "certificate_hash": "de604f981559573ec1dc976ef4615076308aabb1"
+          }
+        },
+        {
+          "client_id": "899929064776-5j714sjl7b8gtnshkr7hrc5sbsi4v777.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCblmI0PirL4fUOokRp1TqZJyYFvBgfGRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899929064776-5j714sjl7b8gtnshkr7hrc5sbsi4v777.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
