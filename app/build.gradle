@@ -38,6 +38,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     //SigIn con Google
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    //Mensajes Push
+    implementation 'com.google.firebase:firebase-messaging'
 
 
 
