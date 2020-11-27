@@ -21,6 +21,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -40,6 +44,10 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
     //Mensajes Push
     implementation 'com.google.firebase:firebase-messaging'
+    //Remote Config
+    implementation 'com.google.firebase:firebase-config'
+    //Firestore
+    implementation 'com.google.firebase:firebase-firestore:21.2.1'
 
 
 

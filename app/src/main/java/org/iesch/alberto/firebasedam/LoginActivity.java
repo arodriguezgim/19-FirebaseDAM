@@ -2,11 +2,13 @@ package org.iesch.alberto.firebasedam;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +30,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 1234;
@@ -39,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
     // 2 - FirebaseAuth
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClent;
+    // Remote Config
+    private FirebaseRemoteConfig mFirebaseRemoteConfig;
 
     @Override
     protected void onStart() {
@@ -59,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +81,17 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         // Configuramos Google Sign In
         createRequest();
-        
+
+        // Remote Config
+        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+                .setMinimumFetchIntervalInSeconds(60)
+                .build();
+        mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings);
+        //Si la App no se puede conectar a internet añado la configuracion a mano
+        mFirebaseRemoteConfig.setDefaultsAsync(Map.of("mostrar_boton_error" , false, "texto_boton_error", "Boton ERROR"));
+
+
         //HACEMOS CLICK EN REGISTRAR
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
